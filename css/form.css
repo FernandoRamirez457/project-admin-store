@@ -1,0 +1,215 @@
+/* Estilo do modal */
+.container-form {
+  display: none; /* Oculto por padrão */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 1000px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+/* Background overlay */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Botão de fechar o modal */
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  font-size: 50px;
+}
+
+
+.container-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding: 20px 0;
+}
+
+.container-title h1 {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+#finalize-btn {
+  font-family: "Work Sans", sans-serif;
+  padding: 10px;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #9c37ee;
+  color: white;
+  font-size: 18px;
+}
+
+/* ESTILOS DOS CONTAINERS DE IMAGEM E DADOS */
+.form-worldwide {
+  max-height: 540px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+.container-data {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+}
+
+.container-image {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-image {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  max-height: 420px;
+}
+
+.image-frame {
+  width: 100%;
+  height: 300px;
+  background-color: #f2f2f2;
+  border: 1px dashed #9c37ee;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* ESTILO INPUTS E LABELS */
+.base-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.base-input {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Para posicionar o ícone corretamente */
+}
+
+label {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.base-input input,
+.base-input select,
+.base-input textarea {
+  font-family: "Work Sans", sans-serif;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #9c37ee;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.base-input textarea {
+  height: 100%;
+  resize: none;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+input[type="file"] {
+  border: none;
+}
+
+/* INPUT DATA */
+.base-input input[type="date"] {
+  padding-right: 10px; 
+  transition: padding-right 0.3s ease;
+}
+
+.base-input input[type="date"].patch-mode {
+  padding-right: 30px;
+}
+
+/* ESTILO EDIT ICON */
+.edit-icon {
+  position: absolute;
+  top: 68%;
+  right: 10px;
+  transform: translateY(-50%);
+  z-index: 4;
+  color: #9c37ee;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.base-input:hover .edit-icon {
+  opacity: 1; 
+}
+
+/* ESTILO ESPECIFICOS EDTI ICON */
+.input-description .edit-icon {
+  top: 30%;
+  font-size: 24px;
+}
+
+.input-image .edit-icon {
+  top: 40%;
+  right: 42%;
+  font-size: 55px;
+}
+
+.input-validade .edit-icon {
+  top: 50%;
+  right: 10px;
+  font-size: 18px;
+}
+
+/* BAR */
+.bar-form {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .base-input {
+    min-width: 100%;
+  }
+}

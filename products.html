@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="sidebar">
+        <a href="./index.html">
+            <div class="logo">
+                <img src="./img/creaty-logo.png" alt="">
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="./index.html" class="active">
+                    <i class="fa-solid fa-house" style="color: #ffffff;"></i>
+                    <p>Home</p>
+                </a></li>
+            <li><a href="#">
+                    <i class="fa-solid fa-list" style="color: #c9c9c9;"></i>
+                    <p>Manage Categories</p>
+                </a></li>
+            <li><a href="#">
+                    <i class="fa-solid fa-boxes-stacked" style="color: #c9c9c9;"></i>
+                    <p>Inventory</p>
+                </a></li>
+            <li><a href="#">
+                    <i class="fa-regular fa-folder" style="color: #c9c9c9;"></i>
+                    <p>Order History</p>
+                </a></li>
+            <li><a href="#">
+                    <i class="fa-solid fa-box" style="color: #c9c9c9;"></i>
+                    <p>Delivery</p>
+                </a></li>
+            <li><a href="#">
+                    <i class="fa-solid fa-chart-simple" style="color: #c9c9c9;"></i>
+                    <p>Logistics</p>
+                </a></li>
+            <li><a href="#">
+                    <i class="fa-solid fa-gear" style="color: #c9c9c9;"></i>
+                    <p>Settings</p>
+                </a></li>
+        </ul>
+    </div>
+
+    <main class="main-content">
+        <button class="btn-back">
+            <i class="fa-solid fa-arrow-left" style="color: black;"></i>
+        </button>
+
+        <div class="container-filter-products">
+            <h1>All Products</h1>
+
+            <div class="container-filter">
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #6a00eb;"></i>
+                </div>
+                <div class="filter">
+                    <i class="fa-solid fa-filter" style="color: #6a00eb;"></i>
+                </div>
+                <button class="btn-add-product btnpost" id="post">
+                    <i class="fa-solid fa-plus" style="color: #ffffff;"></i>
+                    <p>Add Product</p>
+                </button>
+            </div>
+        </div>
+
+        <hr style="margin: 20px 0;">
+
+        <div class="container-product">
+            <div class="product-base">
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLB_cs3GIOYBIn01N-_3SeOJkVJvtcS2TvPg&s"
+                        alt="">
+                    <hr>
+                    <h1>Cereal Matinal</h1>
+                    <p>R$ 23,00</p>
+                    <div class="status">
+                        <p>Dispon.</p>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn-action btndelete" id="delete">
+                        <i class="fa-solid fa-trash" style="color: #ffffff;"></i>
+                    </button>
+                    <button class="btn-action btnput" id="put">
+                        <i class="fa-solid fa-pen" style="color: #ffffff;"></i>
+                    </button>
+                    <button class="btn-action btnpatch" id="patch">
+                        <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+    </main>
+
+    <div id="modal-overlay" class="modal-overlay"></div>
+    <div class="container-form">
+        <button class="close-modal">&times;</button>
+        <div class="container-title">
+            <h1>New Product</h1>
+        </div>
+
+        <form class="form-worldwide" id="product-form" enctype="multipart/form-data">
+            <div class="container-data">
+                <div class="base-row">
+                    <div class="base-input input-id">
+                        <label for="fid">ID:</label>
+                        <input type="text" id="fid" name="id" required pattern="[A-Za-z0-9]{1,10}"
+                            title="Apenas letras e números (máx. 10 caracteres)" disabled>
+                    </div>
+
+                    <div class="base-input input-status">
+                        <label for="fstatus">Status:</label>
+                        <select name="status" id="fstatus" required>
+                            <option value="true">Disponível</option>
+                            <option value="false">Indisponível</option>
+                        </select>
+                        <i class="fas fa-edit edit-icon" data-target="fstatus" style="display: none;"></i>
+                    </div>
+                </div>
+
+                <hr class="bar-form">
+
+                <div class="base-row">
+                    <div class="base-input input-name">
+                        <label for="fname">Nome:</label>
+                        <input type="text" id="fname" name="nome" required minlength="2" maxlength="50"
+                            pattern="[A-Za-zÀ-ÿ\s]+" title="Apenas letras e espaços">
+                        <i class="fas fa-edit edit-icon" data-target="fname" style="display: none;"></i>
+                    </div>
+
+                    <div class="base-input input-mark">
+                        <label for="fmark">Marca:</label>
+                        <input type="text" id="fmark" name="marca" required minlength="2" maxlength="30"
+                            pattern="[A-Za-zÀ-ÿ\s]+" title="Apenas letras e espaços">
+                        <i class="fas fa-edit edit-icon" data-target="fmark" style="display: none;"></i>
+                    </div>
+                </div>
+
+                <div class="base-row">
+                    <div class="base-input input-price">
+                        <label for="fprice">Preço:</label>
+                        <input type="number" id="fprice" name="preco" required min="0" step="0.01"
+                            title="Digite um valor válido (ex: 10.00)">
+                        <i class="fas fa-edit edit-icon" data-target="fprice" style="display: none;"></i>
+                    </div>
+
+                    <div class="base-input input-quantily">
+                        <label for="fquantily">Quantidade:</label>
+                        <input type="number" id="fquantily" name="qtd" required min="1"
+                            title="Digite um valor maior que 0">
+                        <i class="fas fa-edit edit-icon" data-target="fquantily" style="display: none;"></i>
+                    </div>
+
+                    <div class="base-input input-validity">
+                        <label for="fvalidity">Validade:</label>
+                        <input type="date" id="fvalidity" name="validade" required>
+                        <i class="fas fa-edit edit-icon" data-target="fvalidity" style="display: none;"></i>
+                    </div>
+                </div>
+
+                <div class="base-row">
+                    <div class="base-input input-description">
+                        <label for="fdescription">Descrição:</label>
+                        <textarea id="fdescription" name="descricao" required minlength="10"
+                            maxlength="500"></textarea>
+                        <i class="fas fa-edit edit-icon" data-target="fdescription" style="display: none;"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-image">
+                <div class="base-input input-image">
+                    <label for="fimage">Imagem:</label>
+                    <div class="image-frame">
+                        <img id="preview-image" src="">
+                    </div>
+                    <input type="file" id="fimage" name="imagemURL" accept="image/*" required>
+                    <i class="fas fa-pen edit-icon" data-target="fimage" style="display: none;"></i>
+                </div>
+
+                <button id="finalize-btn">Finalizar</button>
+
+            </div>
+        </form>
+    </div>
+
+    <script type="module" src="./js/form.js"></script>
+    <script type="module" src="./js/mainProduct.js"></script>
+</body>
+
+</html>

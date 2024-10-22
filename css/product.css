@@ -1,0 +1,199 @@
+:root {
+  --primary-color: #803cff;
+  --secondary-color: #504aff;
+  --highlight-color: #8351ff;
+  --light-color: rgb(226, 236, 255);
+  --light-color-border: rgb(212, 227, 255);
+  --text-dark: #4300c0;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --white: #ffffff;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-back {
+  background-color: transparent;
+  border: 2px solid black;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 23px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
+.container-filter-products {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-filter-products h1 {
+  font-size: 37px;
+}
+
+.container-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.search,
+.filter {
+  cursor: pointer;
+  padding: 13px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
+.btn-add-product {
+  background-color: #6a00eb;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
+.container-product {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  overflow-y: auto;
+  gap: 60px;
+  padding: 10px 0;
+  justify-content: center;
+}
+
+.container-product::-webkit-scrollbar {
+  display: none;
+}
+
+.product-base {
+  position: relative;
+  display: flex; /* Necessário para o z-index do btn-group funcionar corretamente */
+  max-height: 350px;
+}
+
+.product {
+  position: relative;
+  border: 1px solid rgb(165, 165, 165);
+  border-radius: 7px;
+  padding: 20px;
+  width: 260px;
+  height: 350px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 4px 8px var(--shadow);
+  transition: all 0.3s ease;
+  z-index: 1; /* Define o z-index do card acima do botão */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+  transform: translateY(-10px);
+}
+
+.product img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.product h1 {
+  font-size: 18px;
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+.product p {
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--highlight-color);
+}
+
+.status {
+  background-color: #dff0d8;
+  padding: 7px 9px;
+  border-radius: 50px;
+  position: absolute;
+  border: 2px solid #3baa3c;
+  bottom: 20px;
+  right: 20px;
+}
+
+.status p {
+  font-size: 12px;
+  color: #3baa3c;
+}
+
+/* Botões laterais inicialmente abaixo e invisíveis */
+.btn-group {
+  position: absolute;
+  right: 10px; /* Colocado fora da tela inicialmente */
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 10px;
+  width: 50px;
+  transition: all 0.6s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn-action {
+  background-color: #8351ff;
+  border: none;
+  color: white;
+  border-radius: 7px;
+  width: 56px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.1s ease, opacity 0.8s ease;
+  font-size: 18px;
+}
+
+.btndelete {
+  background-color: rgb(222, 62, 62);
+}
+
+.btnput {
+  background-color: rgb(30, 179, 221);
+}
+
+.btnpatch {
+  background-color: rgb(52, 220, 94);
+}
+
+/* Hover no card */
+.product-base:hover .btn-group,
+.product-base .btn-group:hover { /* Adicionada esta linha */
+  right: -50px; /* Posiciona o botão para aparecer ao hover */
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Suave retorno para baixo ao deixar de hover */
+.product-base .btn-group {
+  transition: all 0.7s ease-in-out;
+}

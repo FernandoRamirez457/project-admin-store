@@ -1,0 +1,76 @@
+.sidebar {
+    width: 300px;
+    flex-wrap: wrap;
+    flex: 1;
+    background-color: #4A41E0;
+    padding: 20px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 87%;
+    margin: 30px;
+    margin-bottom: 70px;
+}
+
+.nav-links {
+    list-style-type: none;
+}
+
+.nav-links li {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    font-size: 17px;
+    color: #dcdcdc;
+    display: flex;
+    align-items: center;
+    padding: 15px 18px;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    gap: 17px;
+}
+
+.nav-links li a.active, .nav-links li a:hover {
+    background-color: #635DFF;
+    color: white;
+}
+
+.nav-links li a.active::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 0;
+    width: 9px;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 0 5px 5px 0;
+}
+
+.nav-links li i {
+    font-size: 22px;
+}
+
+.user-section {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #635DFF;
+    border-radius: 10px;
+}
+
+.user-section h3 {
+    margin-bottom: 10px;
+}
