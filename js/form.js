@@ -2,15 +2,7 @@ import {
   configurePost,
   configurePut,
   configurePatch,
-  disableAllInputs,
-  toggleEditIcons,
 } from "./assets/formUtils.js";
-
-const btnMethods = document.querySelectorAll(".btnpost, .btnput, .btnpatch");
-const inputs = document.querySelectorAll("input, select, textarea");
-const form = document.querySelector("form");
-const editIcons = document.querySelectorAll(".edit-icon");
-const titleForm = document.querySelector(".container-title h1");
 
 const modal = document.querySelector(".modal-overlay");
 const overlay = document.querySelector(".container-form");
@@ -22,62 +14,72 @@ const openModal = () => {
 };
 
 export const closeModal = () => {
+  const modal = document.querySelector(".container-form");
+  const overlay = document.querySelector("#modal-overlay");
+  const form = document.querySelector("#product-form");
+  const previewImage = document.querySelector("#preview-image");
+
+  // Fecha o modal e o overlay
   modal.style.display = "none";
   overlay.style.display = "none";
+
+  // Limpa os dados do formulário
+  form.reset();
+
+  // Remove a imagem de preview
+  previewImage.src = "";
+  previewImage.style.display = "none";
 };
 
-closeModalBtn.addEventListener("click", closeModal);
 
-btnMethods.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    openModal();
-    const method = btn.id;
+export const initFormModal = () => {
+  const btnMethods = document.querySelectorAll(".btnpost, .btnput, .btnpatch");
+  const inputs = document.querySelectorAll("input, select, textarea");
+  const titleForm = document.querySelector(".container-title h1");
+  const editIcons = document.querySelectorAll(".edit-icon");
 
-    inputs.forEach((input) => {
-      input.classList.remove("patch-mode");
-    });
+  closeModalBtn.addEventListener("click", closeModal);
 
-    switch (method) {
-      case "post":
-        titleForm.textContent = "New Product";
-        configurePost(inputs, (show) => toggleEditIcons(editIcons, show));
-        break;
+  btnMethods.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      openModal();
+      const method = btn.classList[2];
+      const idProduct = btn.id; // O ID do produto pode ser utilizado para o PUT e PATCH
 
-      case "put":
-        titleForm.textContent = "Update Product";
-        configurePut(inputs, (show) => toggleEditIcons(editIcons, show));
-        break;
+      inputs.forEach((input) => {
+        input.classList.remove("patch-mode");
+      });
 
-      case "patch":
-        titleForm.textContent = "Update Product";
-        configurePatch(inputs, editIcons, toggleEditIcons, disableAllInputs);
-        break;
-    }
-  });
-});
+      switch (method) {
+        case "POST":
+          titleForm.textContent = "New Product";
+          configurePost(inputs, editIcons);
+          break;
 
-editIcons.forEach((icon) => {
-  icon.addEventListener("click", () => {
-    const targetId = icon.getAttribute("data-target");
-    const targetInput = document.getElementById(targetId);
-    if (targetInput) {
-      targetInput.disabled = !targetInput.disabled;
-      if (!targetInput.disabled) {
-        targetInput.focus(); // Foca no campo habilitado
+        case "PUT":
+          titleForm.textContent = "Update Product";
+          configurePut(inputs, editIcons, idProduct);
+          break;
+
+        case "PATCH":
+          titleForm.textContent = "Update Product";
+          configurePatch(inputs, editIcons, idProduct);
+          break;
       }
-    }
+    });
   });
-});
 
-document.getElementById("fimage").addEventListener("change", (event) => {
-  const file = event.target.files[0];
-  const preview = document.getElementById("preview-image");
+  editIcons.forEach((icon) => {
+    icon.addEventListener("click", () => {
+      const targetId = icon.getAttribute("data-target");
+      const targetInput = document.getElementById(targetId);
+      if (targetInput) {
+        targetInput.disabled = !targetInput.disabled;
+        if (!targetInput.disabled) {
+          targetInput.focus(); // Foca no campo habilitado
+        }
+      }
+    });
+  });
 
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      preview.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
-  }
-});
+};
