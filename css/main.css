@@ -12,9 +12,21 @@ body {
 }
 
 .main-content {
-  margin-left: 300px;
+  margin-left: 310px;
   padding: 30px;
   flex-grow: 1;
   background-color: #ffffff;
   border-radius: 15px;
+}
+
+@media (max-width: 1300px) {
+  body {
+    padding: 0;
+  }
+  .main-content {
+    margin-top: 70px;
+    padding: 20px 5px;
+    height: 100vh;
+    margin-left: 0;
+  }
 }

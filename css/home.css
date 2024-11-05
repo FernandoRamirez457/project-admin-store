@@ -325,7 +325,7 @@
 }
 
 .container-data-mentor h1 {
-  font-size: 16px
+  font-size: 16px;
 }
 
 .container-data-mentor p {
@@ -352,4 +352,142 @@
 
 .btn-follow-mentor p {
   font-size: 14px;
+}
+
+@media (max-width: 1300px) {
+  .container-methods {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .container-function {
+    width: 48%;
+    height: 220px;
+  }
+
+  .container-data-function h1 {
+    font-size: 17px;
+  }
+
+  .container-data-function p {
+    font-size: 10px;
+  }
+
+  .btn-link-acess-page {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 13px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn-link-acess-page i {
+    font-size: 14px;
+  }
+
+  .container-user {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .container-methods {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .main-banner-introduction {
+    width: 100%;
+    height: 300px;
+  }
+  
+  .container-data-user {
+    width: 50%;
+    height: 100%;
+    padding: 17px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .container-date {
+    width: 160px;
+    height: 30px;
+  }
+  
+  .container-date i {
+    font-size: 13px;
+  }
+  
+  .container-date p {
+    font-size: 9px;
+  }
+  
+  .container-information h1 {
+    font-size: 15px;
+  }
+  
+  .container-information p {
+    font-size: 12px;
+  }
+  
+  .container-image-user-data {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container-image-user-data img {
+    width: 90%;
+  }
+  
+  /* METHODS FUNCTIONS */
+  .container-function {
+    width: 100%;
+  }
+  .container-image-function {
+    height: 100%;
+    width: 140px;
+  }
+  
+  .container-image-function img {
+    height: 80%;
+    width: 100%;
+  }
+  
+  .container-data-function h1 {
+    font-size: 18px;
+  }
+  
+  .container-data-function p {
+    font-size: 11px;
+  }
+  
+}
+
+@media (max-width: 400px) {
+  .container-image-function {
+    height: 100%;
+    width: 130px;
+  }
+  
+  .container-image-function img {
+    height: 70%;
+    width: 100%;
+  }
+  
+  .container-data-function h1 {
+    font-size: 18px;
+  }
+  
+  .container-data-function p {
+    font-size: 10px;
+  }
+  
 }
