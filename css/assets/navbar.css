@@ -10,7 +10,7 @@
     flex-direction: column;
     height: 100vh;
     transition: transform 0.3s ease-in-out;
-    z-index: 1000;
+    z-index: 999;
 }
 
 .logo {
